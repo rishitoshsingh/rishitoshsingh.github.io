@@ -1,0 +1,252 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multirow}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeEducation}[5]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \multirow{2}{*}{#3} \\
+      \textit{\small#2} & \\
+      \small#4 & \small #5 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeLeadershipRole}[3]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} @ #2 & \textit{\small #3} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumePublication}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{p{0.97\textwidth}}
+      \href{#2}{#1} \\
+      % \href{#2}{\textit{\small#2}} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Rishitosh Kumar Singh} \\ \vspace{1pt}
+    \small \href{tel:+919953211766}{(+91) 9953-211-766} $|$ \href{mailto:rishitoshs@gmail.com}{rishitoshs@gmail.com} $|$ 
+    \href{https://linkedin.com/in/rishitoshsingh}{linkedin.com/in/rishitoshisngh} $|$
+    \href{https://github.com/rishitoshsingh}{github.com/rishitoshsingh}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeEducation
+      {Ajay Kumar Garg Engineering College}{Affiliated to Dr. A.P.J. Abdul Kalam Technical University}{C.G.P.A: \textbf{8.2}}
+      {Bachelor of Technology in Computer Science}{Aug. 2016 -- Sep 2020}
+    \resumeEducation
+      {Bal Bharati Public School, Dwarka}{Affiliated to Central Board of Secondary Education}{Aggregate: \textbf{94.2\%}}
+      {Class XII (Intermediate, Senior Secondary Examination)}{Apr. 2014 -- Mar 2015}
+    \resumeEducation
+      {Bal Bharati Public School, Dwarka}{Affiliated to Central Board of Secondary Education}{C.G.P.A: \textbf{9.6}}
+      {Class X (High School, Secondary Examination)}{Apr. 2012 -- Feb 2013}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Product Analyst - Data Science}{July 2020 -- Present}
+    {EduGrad}{Hyderabad, TS}
+    % \resumeSubSubheading{Construction Site Labour Attendance System}{}
+    \resumeItemListStart
+        \resumeItem{Role comprises of solving busisness problems using data science and mentoring students}
+        \resumeItem{Worked on construction site labour monitoring system, currently deployed in Hyderabad}
+    \resumeItemListEnd
+    
+  \resumeSubheading
+    {Research Assistant}{Feb 2019 -- Sep 2020}
+    {Big Data Center of Excellence, AKGEC}{Ghaziabad, UP}
+    \resumeItemListStart
+        \resumeItem{Worked under Dr. Sushil Kumar on research project funded by AKTU}
+        \resumeItem{Investigated neurons in real, complex and quaternion domains}
+    \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer}{Oct 2019 -- Sep 2020}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%-------------------------------------------
+  \resumeSubHeadingListEnd
+
+
+% ----------Publications-------
+\section{Publications}
+    \resumeSubHeadingListStart
+      \resumePublication
+          {Kumar, S., \textbf{Singh, R.K.} \& Chaudhary, A. \textbf{On the Learning Machine with Amplificatory Neuron in Complex Domain.} Arab J Sci Eng (2020). https://doi.org/10.1007/s13369-020-04692-3}
+          {https://doi.org/10.1007/s13369-020-04692-3}
+    \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Automated Irrigation System using ML} $|$ \emph{Python, Flask, Arduino}}{Oct 2018}
+          \resumeItemListStart
+            \resumeItem{Participated in ChallengeACI hackathon with 4 other team members}
+            \resumeItem{Developed REST API using Flask, to send sensors data to cloud.}
+            \resumeItem{Programmed GSM Module to send sensor data and receive instructions from cloud}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{ToWatch} $|$ \emph{Kotlin, Python, Flask, Firebase, Git}}{Apr -- Jul 2018}
+          \resumeItemListStart
+            \resumeItem{Developed an movie directory android app which consumes TMDB API}
+            \resumeItem{Developed a webhook using Flask, to send notifications to users}
+            \resumeItem{Published app to play store (\href{http://bit.ly/ToWatchApp}{\small{bit.ly/ToWatchApp}}) gaining 1K+ downloads and an average 4.7/5-star review.}
+          \resumeItemListEnd
+          \resumeProjectHeading
+          {\textbf{Soccer Playing Bots} $|$ \emph{Arduino}}{Apr 2017}
+          \resumeItemListStart
+            \resumeItem{Participated in Technoxian'17 with 6 other team members}
+            \resumeItem{Built 2 soccer playing bots with innovative design}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------LEADERSHIP-----------
+\section{Leadership}
+    \resumeSubHeadingListStart
+
+      \resumeLeadershipRole
+        {Tech Lead}{Big Data Center of Excellence, AKGEC}{Sep 2019 -- Jul 2020}
+        \resumeItemListStart
+            \resumeItem{Supervised Tech team, Organized workshops and Guided juniors}
+        \resumeItemListEnd
+
+      \resumeLeadershipRole
+        {Student  Member}{Big Data Center of Excellence, AKGEC}{Aug 2017 -- Jul 2019}
+        \resumeItemListStart
+           \resumeItem{Developed Saksham'18 Android app for college's annual sports meet}
+           \resumeItem{Developed TedxAKGEC Android app for college's first Tedx event.}
+        \resumeItemListEnd
+    
+    \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C/C++, Java, Python, Kotlin, SQL, HTML/CSS, LaTeX} \\
+     \textbf{Frameworks}{: Flask, Flutter, Apache Spark} \\
+     \textbf{Developer Tools}{: Git, VS Code, PyCharm, IntelliJ, Google Cloud Platform, Firebase, Arduino} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib, Tensorflow}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
