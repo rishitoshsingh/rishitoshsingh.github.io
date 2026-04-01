@@ -1,40 +1,340 @@
-<div class="portfolio">
-  <header class="hero">
-    <h1>Rishitosh Singh</h1>
-    <p>Full Stack Developer | Tech Enthusiast</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>Welcome to my portfolio. I am a passionate developer with experience in various technologies.</p>
-  </section>
-
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Project 1</h3>
-      <p>Description of project 1.</p>
+<main class="page-shell">
+  <nav class="topbar">
+    <a class="wordmark" href="#top">{{ name }}</a>
+    <div class="topbar-links">
+      @for (section of portfolioSections; track section.href) {
+        <a [href]="section.href">{{ section.label }}</a>
+      }
     </div>
-    <div class="project">
-      <h3>Project 2</h3>
-      <p>Description of project 2.</p>
+  </nav>
+
+  <section class="hero-panel" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow">Portfolio</p>
+      <h1>{{ name }}</h1>
+      <p class="hero-role">{{ role }}</p>
+      <p class="hero-intro">{{ intro }}</p>
+      <p class="hero-summary">{{ heroSummary }}</p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#projects">
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>View Projects</span>
+        </a>
+        <a class="button button-secondary" [href]="linkedin" target="_blank" rel="noreferrer">
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.6 9.68h2.68V18H5.6V9.68Zm4.35 0h2.57v1.14h.04c.36-.68 1.23-1.4 2.54-1.4 2.72 0 3.22 1.79 3.22 4.12V18h-2.68v-3.96c0-.94-.02-2.16-1.31-2.16-1.31 0-1.51 1.03-1.51 2.09V18H9.95V9.68Z"/>
+            </svg>
+          </span>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <ul class="meta-list">
+        <li>{{ location }}</li>
+        <li><a [href]="'mailto:' + email">{{ email }}</a></li>
+        <li><a [href]="'tel:' + phone">{{ phone }}</a></li>
+        <li><a [href]="github" target="_blank" rel="noreferrer">GitHub</a></li>
+      </ul>
     </div>
+
+    <aside class="hero-card">
+      @if (profileImage) {
+        <img class="profile-image" [src]="profileImage" [alt]="name" />
+      } @else {
+        <div class="monogram">RS</div>
+      }
+      <p class="card-kicker">Current Focus</p>
+      <ul class="focus-list">
+        @for (area of focusAreas; track area) {
+          <li>{{ area }}</li>
+        }
+      </ul>
+    </aside>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p>LinkedIn: <a href="#">Your LinkedIn</a></p>
+  <section class="facts-grid">
+    @for (fact of quickFacts; track fact.label) {
+      <article class="fact-card">
+        <p class="fact-value">{{ fact.value }}</p>
+        <p class="fact-label">{{ fact.label }}</p>
+      </article>
+    }
   </section>
-</div>
 
-<router-outlet />
+  <section class="content-grid">
+    <article class="panel panel-wide" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">About</p>
+        <h2>Applied AI, ML systems, and data products with measurable outcomes.</h2>
+      </div>
+      <p>
+        This portfolio is based directly on my resume and highlights the work I have done across
+        machine learning engineering, research automation, NLP, analytics, and production data
+        systems. My recent work spans SageMaker pipelines, Snowflake preprocessing, semantic
+        retrieval systems, streaming data infrastructure, and developer-facing AI tooling.
+      </p>
+    </article>
 
+    <article class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">Strengths</p>
+        <h2>How I tend to contribute</h2>
+      </div>
+      <div class="stack">
+        @for (strength of strengths; track strength.title) {
+          <section class="entry">
+            <h3>{{ strength.title }}</h3>
+            <p>{{ strength.description }}</p>
+          </section>
+        }
+      </div>
+    </article>
 
+    <article class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">Working Style</p>
+        <h2>What it is like to work with me</h2>
+      </div>
+      <ul class="bullet-list">
+        @for (item of workingStyle; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </article>
 
+    <article class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">Education</p>
+        <h2>Academic foundation</h2>
+      </div>
+      <div class="stack">
+        @for (item of education; track item.school) {
+          <section class="entry">
+            <div class="entry-header">
+              <div class="experience-heading">
+                <div class="logo-badge" [class.logo-badge-empty]="!item.logoSrc">
+                  @if (item.logoSrc) {
+                    <img class="company-logo" [src]="item.logoSrc" [alt]="item.logoAlt || item.school" />
+                  } @else {
+                    <span class="logo-fallback">{{ item.school.slice(0, 1) }}</span>
+                  }
+                </div>
+                <h3>{{ item.school }}</h3>
+              </div>
+              <span>{{ item.timeframe }}</span>
+            </div>
+            <p class="entry-title">{{ item.degree }}</p>
+            <p class="muted">Relevant coursework: {{ item.courses }}</p>
+          </section>
+        }
+      </div>
+    </article>
 
+    <article class="panel" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">Skills</p>
+        <h2>Technical range</h2>
+      </div>
+      <div class="stack">
+        @for (group of skillGroups; track group.label) {
+          <section class="entry">
+            <h3>{{ group.label }}</h3>
+            <p>{{ group.items }}</p>
+          </section>
+        }
+      </div>
+    </article>
+
+    <article class="panel panel-wide" id="experience">
+      <div class="section-heading">
+        <p class="eyebrow">Experience</p>
+        <h2>Work that shipped, scaled, or improved outcomes.</h2>
+      </div>
+      <div class="timeline">
+        @for (item of experience; track item.role + item.organization) {
+          <section class="timeline-item">
+            <div class="entry-header">
+              <div class="experience-heading">
+                <div class="logo-badge" [class.logo-badge-empty]="!item.logoSrc">
+                  @if (item.logoSrc) {
+                    <img class="company-logo" [src]="item.logoSrc" [alt]="item.logoAlt || item.organization" />
+                  } @else {
+                    <span class="logo-fallback">{{ item.organization.slice(0, 1) }}</span>
+                  }
+                </div>
+                <div>
+                <h3>{{ item.role }}</h3>
+                <p class="entry-title">{{ item.organization }} · {{ item.location }}</p>
+                </div>
+              </div>
+              <span>{{ item.timeframe }}</span>
+            </div>
+            <ul class="bullet-list">
+              @for (highlight of item.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+              }
+            </ul>
+          </section>
+        }
+      </div>
+    </article>
+
+    <article class="panel panel-wide" id="projects">
+      <div class="section-heading" id="current-work">
+        <p class="eyebrow">Current Work</p>
+        <h2>What I am actively building right now.</h2>
+      </div>
+      <section class="project-card project-card-featured">
+        <div class="entry-header">
+          <h3>{{ currentProject.name }}</h3>
+          <span>{{ currentProject.timeframe }}</span>
+        </div>
+        <p>{{ currentProject.summary }}</p>
+        <div class="tag-row">
+          @for (item of currentProject.stack; track item) {
+            <span class="tag">
+              @if (pillIcon(item); as iconSrc) {
+                <span class="tag-icon" aria-hidden="true">
+                  <img [src]="iconSrc" [alt]="item + ' logo'" class="tag-icon-image" />
+                </span>
+              }
+              <span>{{ item }}</span>
+            </span>
+          }
+        </div>
+        <ul class="bullet-list">
+          @for (highlight of currentProject.highlights; track highlight) {
+            <li>{{ highlight }}</li>
+          }
+        </ul>
+        <a class="project-link" [href]="currentProject.href" target="_blank" rel="noreferrer">
+          <span class="project-link-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.22 1.84 1.22 1.08 1.82 2.82 1.3 3.5 1 .11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.32-5.47-5.87 0-1.3.47-2.36 1.23-3.2-.12-.3-.53-1.5.12-3.12 0 0 1-.32 3.3 1.22a11.6 11.6 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.62.24 2.82.12 3.12.77.84 1.23 1.9 1.23 3.2 0 4.56-2.8 5.57-5.48 5.86.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/>
+            </svg>
+          </span>
+          <span>{{ currentProject.hrefLabel }}</span>
+        </a>
+      </section>
+    </article>
+
+    <article class="panel panel-wide" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">Projects</p>
+        <h2>Selected shipped and exploratory work.</h2>
+      </div>
+      <div class="project-grid">
+        @for (project of projects; track project.name) {
+          <section class="project-card">
+            <div class="entry-header">
+              <h3>{{ project.name }}</h3>
+              <span>{{ project.timeframe }}</span>
+            </div>
+            <p>{{ project.summary }}</p>
+            <div class="tag-row">
+              @for (item of project.stack; track item) {
+                <span class="tag">
+                  @if (pillIcon(item); as iconSrc) {
+                    <span class="tag-icon" aria-hidden="true">
+                      <img [src]="iconSrc" [alt]="item + ' logo'" class="tag-icon-image" />
+                    </span>
+                  }
+                  <span>{{ item }}</span>
+                </span>
+              }
+            </div>
+            <ul class="bullet-list">
+              @for (highlight of project.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+              }
+            </ul>
+            <div class="project-link-row">
+              @if (project.docsHref && project.docsLabel) {
+                <a class="project-link project-link-secondary" [href]="project.docsHref" target="_blank" rel="noreferrer">
+                  <span class="project-link-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M6.5 3.25A3.25 3.25 0 0 0 3.25 6.5v11A3.25 3.25 0 0 0 6.5 20.75h11a3.25 3.25 0 0 0 3.25-3.25v-11A3.25 3.25 0 0 0 17.5 3.25h-11Zm0 1.5h11c.97 0 1.75.78 1.75 1.75v11c0 .97-.78 1.75-1.75 1.75h-11a1.75 1.75 0 0 1-1.75-1.75v-11c0-.97.78-1.75 1.75-1.75Zm2.25 2.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3.5a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5h-3.5Z"/>
+                    </svg>
+                  </span>
+                  <span>{{ project.docsLabel }}</span>
+                </a>
+              }
+              <a class="project-link" [href]="project.href" target="_blank" rel="noreferrer">
+                <span class="project-link-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.22 1.84 1.22 1.08 1.82 2.82 1.3 3.5 1 .11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.32-5.47-5.87 0-1.3.47-2.36 1.23-3.2-.12-.3-.53-1.5.12-3.12 0 0 1-.32 3.3 1.22a11.6 11.6 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.62.24 2.82.12 3.12.77.84 1.23 1.9 1.23 3.2 0 4.56-2.8 5.57-5.48 5.86.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/>
+                  </svg>
+                </span>
+                <span>{{ project.hrefLabel }}</span>
+              </a>
+            </div>
+          </section>
+        }
+      </div>
+    </article>
+
+    <article class="panel panel-wide" id="publications">
+      <div class="section-heading">
+        <p class="eyebrow">Publications</p>
+        <h2>Research publications and scholarly work.</h2>
+      </div>
+      <div class="stack">
+        @for (paper of publications; track paper.title) {
+          <section class="entry">
+            <div class="entry-header">
+              <div class="experience-heading">
+                <div class="logo-badge" [class.logo-badge-empty]="!paper.logoSrc">
+                  @if (paper.logoSrc) {
+                    <img class="company-logo" [src]="paper.logoSrc" [alt]="paper.logoAlt || paper.venue" />
+                  } @else {
+                    <span class="logo-fallback">{{ paper.venue.slice(0, 1) }}</span>
+                  }
+                </div>
+                <h3>{{ paper.title }}</h3>
+              </div>
+              <span>{{ paper.year }}</span>
+            </div>
+            <p class="entry-title">{{ paper.venue }}</p>
+            <p>{{ paper.authors }}</p>
+            @if (paper.note) {
+              <p class="muted">{{ paper.note }}</p>
+            }
+            <a [href]="paper.href" target="_blank" rel="noreferrer">Open publication</a>
+          </section>
+        }
+      </div>
+    </article>
+
+    <article class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">Certification</p>
+        <h2>Cloud credential</h2>
+      </div>
+      <section class="entry">
+        <h3>{{ certification.name }}</h3>
+        <p>Credential ID: {{ certification.id }}</p>
+        <a [href]="certification.href" target="_blank" rel="noreferrer">View credential</a>
+      </section>
+    </article>
+
+    <article class="panel" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Contact</p>
+        <h2>Reach out</h2>
+      </div>
+      <div class="stack">
+        <a [href]="'mailto:' + email">{{ email }}</a>
+        <a [href]="'tel:' + phone">{{ phone }}</a>
+        <a [href]="linkedin" target="_blank" rel="noreferrer">linkedin.com/in/rishitoshsingh</a>
+        <a [href]="github" target="_blank" rel="noreferrer">github.com/rishitoshsingh</a>
+        <p class="muted">Source resume: {{ resumePath }}</p>
+      </div>
+    </article>
+  </section>
+</main>

@@ -1,66 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f4efe4;
+  --bg-deep: #e8decb;
+  --panel: rgba(255, 251, 243, 0.88);
+  --panel-strong: #113f37;
+  --ink: #3f4138;
+  --ink-strong: #1f241c;
+  --muted: #6d7167;
+  --accent: #e0a75f;
+  --accent-strong: #8b4d16;
+  --border: rgba(45, 58, 41, 0.12);
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: Arial, sans-serif;
+  min-height: 100%;
   margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+  color: var(--ink);
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at top, rgba(224, 167, 95, 0.16), transparent 24rem),
+    linear-gradient(180deg, var(--bg), var(--bg-deep));
+  background-attachment: fixed;
 }
 
-.portfolio {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17, 63, 55, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 63, 55, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent);
 }
 
-.hero {
-  text-align: center;
-  padding: 50px 0;
-  background-color: #fff;
-  border-radius: 8px;
-  margin-bottom: 20px;
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
 }
 
-.hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2em;
-  color: #666;
-}
-
-nav {
-  margin-top: 20px;
-}
-
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.about, .projects, .contact {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-}
-
-.about h2, .projects h2, .contact h2 {
-  color: #333;
-}
-
-.project {
-  margin-bottom: 15px;
-}
-
-.project h3 {
-  color: #007bff;
+img {
+  display: block;
+  max-width: 100%;
 }
