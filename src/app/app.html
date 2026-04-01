@@ -33,14 +33,42 @@
           </span>
           <span>LinkedIn</span>
         </a>
+        <a class="button button-secondary" [href]="resumePath" download>
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 3.99a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/>
+            </svg>
+          </span>
+          <span>Download Resume</span>
+        </a>
       </div>
 
-      <ul class="meta-list">
-        <li>{{ location }}</li>
-        <li><a [href]="'mailto:' + email">{{ email }}</a></li>
-        <li><a [href]="'tel:' + phone">{{ phone }}</a></li>
-        <li><a [href]="github" target="_blank" rel="noreferrer">GitHub</a></li>
-      </ul>
+      <div class="hero-actions hero-meta-actions">
+        <span class="button button-secondary meta-button">
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.07 5.74 11.75 6 12.03a1.3 1.3 0 0 0 2 0c.26-.28 6-6.96 6-12.03a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/>
+            </svg>
+          </span>
+          <span>{{ location }}</span>
+        </span>
+        <a class="button button-secondary meta-button" [href]="'mailto:' + email">
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5v-13Zm2.12-.5 5.88 5.04L17.88 5H6.12Zm11.88 1.32-5.35 4.58a1 1 0 0 1-1.3 0L6 6.32V18.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V6.32Z"/>
+            </svg>
+          </span>
+          <span>{{ email }}</span>
+        </a>
+        <a class="button button-secondary meta-button" [href]="github" target="_blank" rel="noreferrer">
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.22 1.84 1.22 1.08 1.82 2.82 1.3 3.5 1 .11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.32-5.47-5.87 0-1.3.47-2.36 1.23-3.2-.12-.3-.53-1.5.12-3.12 0 0 1-.32 3.3 1.22a11.6 11.6 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.62.24 2.82.12 3.12.77.84 1.23 1.9 1.23 3.2 0 4.56-2.8 5.57-5.48 5.86.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/>
+            </svg>
+          </span>
+          <span>GitHub</span>
+        </a>
+      </div>
     </div>
 
     <aside class="hero-card">
@@ -323,17 +351,47 @@
       </section>
     </article>
 
-    <article class="panel" id="contact">
-      <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2>Reach out</h2>
-      </div>
-      <div class="stack">
-        <a [href]="'mailto:' + email">{{ email }}</a>
-        <a [href]="'tel:' + phone">{{ phone }}</a>
-        <a [href]="linkedin" target="_blank" rel="noreferrer">linkedin.com/in/rishitoshsingh</a>
-        <a [href]="github" target="_blank" rel="noreferrer">github.com/rishitoshsingh</a>
-        <p class="muted">Source resume: {{ resumePath }}</p>
+    <article class="contact-panel panel-wide" id="contact">
+      <div class="contact-card">
+        @if (profileImage) {
+          <img class="contact-image" [src]="profileImage" [alt]="name" />
+        } @else {
+          <div class="contact-image contact-image-fallback">RS</div>
+        }
+        <div class="contact-copy">
+          <p class="eyebrow contact-eyebrow">Contact</p>
+          <h2>{{ name }}</h2>
+          <p class="contact-summary">
+            Machine learning engineer with experience across data systems, real-time analytics, and
+            applied AI products.
+          </p>
+          <div class="contact-links">
+            <a [href]="github" target="_blank" rel="noreferrer">
+              <span class="contact-link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.22 1.84 1.22 1.08 1.82 2.82 1.3 3.5 1 .11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.32-5.47-5.87 0-1.3.47-2.36 1.23-3.2-.12-.3-.53-1.5.12-3.12 0 0 1-.32 3.3 1.22a11.6 11.6 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.62.24 2.82.12 3.12.77.84 1.23 1.9 1.23 3.2 0 4.56-2.8 5.57-5.48 5.86.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/>
+                </svg>
+              </span>
+              <span>GitHub</span>
+            </a>
+            <a [href]="linkedin" target="_blank" rel="noreferrer">
+              <span class="contact-link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.6 9.68h2.68V18H5.6V9.68Zm4.35 0h2.57v1.14h.04c.36-.68 1.23-1.4 2.54-1.4 2.72 0 3.22 1.79 3.22 4.12V18h-2.68v-3.96c0-.94-.02-2.16-1.31-2.16-1.31 0-1.51 1.03-1.51 2.09V18H9.95V9.68Z"/>
+                </svg>
+              </span>
+              <span>LinkedIn</span>
+            </a>
+            <a [href]="'mailto:' + email">
+              <span class="contact-link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5v-13Zm2.12-.5 5.88 5.04L17.88 5H6.12Zm11.88 1.32-5.35 4.58a1 1 0 0 1-1.3 0L6 6.32V18.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V6.32Z"/>
+                </svg>
+              </span>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
       </div>
     </article>
   </section>

@@ -60,7 +60,7 @@ export class App {
   protected readonly phone = '602-642-6645';
   protected readonly linkedin = 'https://linkedin.com/in/rishitoshsingh';
   protected readonly github = 'https://github.com/rishitoshsingh';
-  protected readonly resumePath = '/Users/rishitoshsingh/Documents/Resume/Job-MLE-AI/resume.tex';
+  protected readonly resumePath = '/resume/resume.pdf';
   protected readonly profileImage = '/images/profile.png';
 
   protected readonly focusAreas = [
@@ -134,7 +134,7 @@ export class App {
   protected readonly skillGroups = [
     {
       label: 'Machine Learning and AI',
-      items: 'Python, PyTorch, TensorFlow, scikit-learn, LLMs, RAG, MCP, fine-tuning, agentic AI, NLP'
+      items: 'Python, PyTorch, TensorFlow, scikit-learn, LLMs, RAG, MCP, LangChain, LiteLLM, LangGraph, fine-tuning, agentic AI, NLP'
     },
     {
       label: 'Data Engineering and MLOps',
