@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "ng deploy",
+    "deploy:dry-run": "ng deploy --dry-run",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs"
@@ -42,6 +44,7 @@
     "@angular/compiler-cli": "^21.0.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "angular-cli-ghpages": "^3.0.2",
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
