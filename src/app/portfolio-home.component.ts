@@ -60,7 +60,7 @@ export class PortfolioHomeComponent {
   protected readonly phone = '602-642-6645';
   protected readonly linkedin = 'https://linkedin.com/in/rishitoshsingh';
   protected readonly github = 'https://github.com/rishitoshsingh';
-  protected readonly resumePath = '/resume/Rishitosh%20Singh%20(Resume).pdf';
+  protected readonly resumePath = 'https://drive.google.com/uc?export=download&id=1HVDFARDoh9XOAFL2QZv5lCDmGiWoqmfI';
   protected readonly profileImage = '/images/profile.png';
 
   protected readonly focusAreas = [
