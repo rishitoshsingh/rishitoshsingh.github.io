@@ -1,346 +1,140 @@
 import { Component } from '@angular/core';
+import { MascotComponent } from './mascot.component';
 
-type EducationItem = {
-  school: string;
-  timeframe: string;
-  degree: string;
-  courses: string;
-  logoSrc?: string;
-  logoAlt?: string;
-};
-
-type ExperienceItem = {
-  role: string;
-  organization: string;
-  location: string;
-  timeframe: string;
-  logoSrc?: string;
-  logoAlt?: string;
-  highlights: string[];
-};
-
-type ProjectItem = {
-  name: string;
-  timeframe: string;
-  href: string;
-  hrefLabel: string;
-  docsHref?: string;
-  docsLabel?: string;
-  summary: string;
-  stack: string[];
-  highlights: string[];
-};
-
-type PublicationItem = {
-  title: string;
-  venue: string;
-  year: string;
-  href: string;
-  authors: string;
-  note?: string;
-  logoSrc?: string;
-  logoAlt?: string;
-};
+type Link = { label: string; href: string; icon?: string };
 
 @Component({
   selector: 'app-portfolio-home',
   standalone: true,
+  imports: [MascotComponent],
   templateUrl: './portfolio-home.component.html',
   styleUrl: './portfolio-home.component.css'
 })
 export class PortfolioHomeComponent {
   protected readonly name = 'Rishitosh Kumar Singh';
-  protected readonly role = 'Machine Learning Engineer and Applied AI Builder';
-  protected readonly intro =
-    'I build production-minded ML systems, data pipelines, and applied AI products across research, analytics, and real-world deployment.';
-  protected readonly heroSummary =
-    'My work sits at the intersection of machine learning engineering, data systems, and practical product thinking. I enjoy taking an ambiguous problem, designing the pipeline around it, and shipping something useful that can be measured, maintained, and extended.';
-  protected readonly location = 'Tempe, Arizona';
+  protected readonly tagline =
+    'ML engineer. I build data pipelines and training workflows, and I research how LLM agents fail.';
   protected readonly email = 'rishitoshs@gmail.com';
-  protected readonly phone = '602-642-6645';
-  protected readonly linkedin = 'https://linkedin.com/in/rishitoshsingh';
-  protected readonly github = 'https://github.com/rishitoshsingh';
-  protected readonly resumePath = 'https://drive.google.com/uc?export=download&id=1HVDFARDoh9XOAFL2QZv5lCDmGiWoqmfI';
-  protected readonly profileImage = '/images/profile.png';
 
-  protected readonly focusAreas = [
-    'Production ML pipelines',
-    'LLMs, RAG, and agentic systems',
-    'Data engineering and MLOps',
-    'NLP and analytics workflows'
+  protected readonly links: Link[] = [
+    { label: 'GitHub', icon: 'M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.22 1.84 1.22 1.08 1.82 2.82 1.3 3.5 1 .11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.32-5.47-5.87 0-1.3.47-2.36 1.23-3.2-.12-.3-.53-1.5.12-3.12 0 0 1-.32 3.3 1.22a11.6 11.6 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.62.24 2.82.12 3.12.77.84 1.23 1.9 1.23 3.2 0 4.56-2.8 5.57-5.48 5.86.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z', href: 'https://github.com/rishitoshsingh' },
+    { label: 'LinkedIn', icon: 'M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z', href: 'https://linkedin.com/in/rishitoshsingh' },
+    { label: 'Email', icon: 'M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z', href: 'mailto:rishitoshs@gmail.com' },
+    { label: 'Resume', icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm-2 16-4-4h3v-4h2v4h3l-4 4Zm1-9V3.5L18.5 9H13Z', href: 'https://drive.google.com/uc?export=download&id=1HVDFARDoh9XOAFL2QZv5lCDmGiWoqmfI' }
   ];
 
-  protected readonly quickFacts = [
-    { value: '5+', label: 'years across ML, analytics, and product-facing systems' },
-    { value: '10K+', label: 'simulation trials automated for research evaluation' },
-    { value: '35%', label: 'faster retraining cycles in production ML workflows' },
-    { value: '62%', label: 'lower inference cost on deployed computer vision systems' }
-  ];
-
-  protected readonly portfolioSections = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Current Work', href: '#current-work' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Publications', href: '#publications' },
-    { label: 'Contact', href: '#contact' }
-  ];
-
-  protected readonly strengths = [
-    {
-      title: 'Production-minded ML',
-      description:
-        'I focus on workflows that do not stop at experimentation: training, retraining, drift detection, deployment, monitoring, and long-term maintainability.'
-    },
-    {
-      title: 'Data systems thinking',
-      description:
-        'A lot of model quality comes from the quality of the pipeline around it. I like building the ingestion, transformation, and evaluation paths that make ML useful.'
-    },
-    {
-      title: 'Applied AI with product context',
-      description:
-        'I am most effective when the work connects technical depth with a user or operational need, whether that is a recruiter-facing RAG tool or an internal analytics platform.'
-    }
-  ];
-
-  protected readonly workingStyle = [
-    'Translate ambiguous problems into measurable technical milestones',
-    'Prefer simple architectures that can scale gradually over clever demos',
-    'Balance research exploration with production constraints',
-    'Build systems that leave behind reusable tooling, not one-off notebooks'
-  ];
-
-  protected readonly education: EducationItem[] = [
-    {
-      school: 'Arizona State University',
-      timeframe: 'Anticipated May 2026',
-      degree: 'Master of Science in Computer Science',
-      courses: 'NLP, Statistical ML, Cloud Computing, Algorithms, Image Analytics, Data Mining, Web Mining',
-      logoSrc: '/logos/asu-logo.png',
-      logoAlt: 'Arizona State University logo'
-    },
-    {
-      school: 'Dr. A.P.J. Abdul Kalam Technical University',
-      timeframe: 'September 2020',
-      degree: 'Bachelor of Technology in Computer Science',
-      courses: 'Data Structures, Algorithms, Operating Systems, Database Management Systems, Computer Networks',
-      logoSrc: '/logos/aktu-logo.png',
-      logoAlt: 'Dr. A.P.J. Abdul Kalam Technical University logo'
-    }
-  ];
-
-  protected readonly skillGroups = [
-    {
-      label: 'Machine Learning and AI',
-      items: 'Python, PyTorch, TensorFlow, scikit-learn, LLMs, RAG, MCP, LangChain, LiteLLM, LangGraph, fine-tuning, agentic AI, NLP'
-    },
-    {
-      label: 'Data Engineering and MLOps',
-      items: 'Spark, PySpark, Airflow, Kafka, MLflow, SageMaker, Docker, Kubernetes, CI/CD, automated pipelines, model deployment'
-    },
-    {
-      label: 'Cloud and Infrastructure',
-      items: 'AWS, Snowflake, Linux, Bash scripting'
-    },
-    {
-      label: 'Software Development',
-      items: 'Python, C++, SQL, JavaScript, Flask, FastAPI, REST APIs, Git, system design'
-    },
-    {
-      label: 'Visualization and Analytics',
-      items: 'Pandas, NumPy, Matplotlib, Streamlit'
-    }
-  ];
-
-  protected readonly experience: ExperienceItem[] = [
+  protected readonly experience = [
     {
       role: 'Research Assistant',
-      organization: 'Arizona State University',
-      location: 'Tempe, AZ',
-      timeframe: 'February 2025 - Present',
-      logoSrc: '/logos/asu-logo.png',
-      logoAlt: 'Arizona State University logo',
-      highlights: [
-        'Automated large-scale simulation pipelines across 10K+ trials to generate structured gameplay data for benchmarking optimization strategies.',
-        'Developed text analytics workflows for interview and survey data using Python, scikit-learn, clustering, and topic modeling.',
-        'Designed and maintained Snowflake preprocessing pipelines for downstream analytics and model training.'
+      org: 'CogInt Lab & GLAD Lab, Arizona State University',
+      when: 'Feb 2025 – Present',
+      points: [
+        'Built Tracer, an agentic data generator behind τ-Emotion-Bench: 1,492 verified trajectories testing tool-calling LLMs against emotional users in airline, retail, telecom and telehealth. SOTA agents drop 4–11% (NeurIPS 2026 Workshop).',
+        'Co-first author on benchmarking VLMs (InternVL3.5, Qwen3-VL, GPT-4o) for reading player engagement from gameplay video across 9 games. Zero-shot scored below a majority baseline (~57% vs 67.2%); retrieval-augmented few-shot prompting closed the gap by +18pp (EMNLP 2026).',
+        'Built Dask and PySpark pipelines that clean, validate and normalize raw research datasets into Parquet for analysis and training.',
+        'Built 2 CrewAI multi-agent workflows that generate course assignments for AI/ML coursework.'
       ]
     },
     {
       role: 'Machine Learning Engineer',
-      organization: 'Tiger Analytics India Private Limited',
-      location: 'Hyderabad, India',
-      timeframe: 'June 2022 - December 2023',
-      logoSrc: '/logos/tiger-analytics-logo.png',
-      logoAlt: 'Tiger Analytics logo',
-      highlights: [
-        'Automated ML pipelines in AWS SageMaker for a financial institution, reducing retraining cycles by 35%.',
-        'Built drift detection and retraining workflows with MLflow and Python to improve model reliability.',
-        'Optimized PySpark ETL pipelines processing millions of records daily and cut batch runtime by 25%.',
-        'Automated monitoring and CI/CD tasks, removing 60% of manual effort from financial ML operations.'
+      org: 'Tiger Analytics',
+      when: 'Jun 2022 – Dec 2023',
+      points: [
+        'Built SageMaker pipelines for a financial client that chain data cleaning, inference, evaluation and drift detection: 35% faster retraining.',
+        'Built drift detection and retraining workflows with MLflow to keep production models reliable.',
+        'Tuned PySpark and StreamSets ETL over millions of daily records: 25% shorter batch runs.',
+        'Automated model monitoring and CI/CD: 60% less manual work.'
       ]
     },
     {
       role: 'Senior Product Analyst (Applied ML)',
-      organization: 'Techlearn / Ashoka Systems India Pvt. Ltd.',
-      location: 'Hyderabad, India',
-      timeframe: 'July 2020 - June 2022',
-      highlights: [
-        'Built NLP-driven recommendation workflows that reduced churn from 10% to 2%.',
-        'Developed and deployed EduFace, a face recognition pipeline using GStreamer, OpenCV, and Docker, lowering inference costs by 62%.',
-        'Applied computer vision to segment mentor recordings by topic and reduce manual content review.',
-        'Created a Flask-based internal platform for labeling and processing user and product data.'
+      org: 'Techlearn (EduGrad)',
+      when: 'Nov 2020 – Jun 2022',
+      points: [
+        'NLP models on user behavior drove product recommendations that cut churn from 10% to 2%.',
+        'Shipped EduFace, a face recognition pipeline (GStreamer, OpenCV, Docker) on local hardware: 62% lower inference cost.',
+        'Used computer vision to split mentor recordings by topic, cutting manual review time.',
+        'Built a Flask platform for labeling and processing user and product data.'
       ]
     }
   ];
 
-  protected readonly projects: ProjectItem[] = [
+  protected readonly projects = [
     {
-      name: 'Richie: Multi-Agent RAG and Knowledge Graph System',
-      timeframe: 'October 2025',
-      href: 'https://github.com/rishitoshsingh/richie',
-      hrefLabel: 'View repository',
-      docsHref: 'https://rishitoshsingh.github.io/richie/',
-      docsLabel: 'Read More',
-      summary:
-        'A personal AI system for repository understanding that combines multi-step retrieval, recruiter-style Q&A, and graph-linked reasoning over technical work.',
-      stack: ['LangChain', 'OpenAI APIs', 'Vector DB', 'Knowledge Graph', 'Streamlit'],
-      highlights: [
-        'Includes a live Streamlit experience for asking recruiter-style questions about repositories and technical work.',
-        'Indexed and summarized GitHub repositories using LangChain, vector databases, and model APIs.',
-        'Built a semantic web mining pipeline over LinkedIn job postings and 30K resumes to construct candidate-job skill graphs.',
-        'Unified LLM retrieval with graph-based entity linking for context-aware responses.'
+      name: 'τ-Emotion-Bench',
+      what: 'Benchmark for tool-calling agents talking to emotional users, across airline, retail, telecom and telehealth. Fine-tuned Qwen3 beats ReAct.',
+      stack: ['Python', 'LLM eval', 'Fine-tuning'],
+      links: [{ label: 'Dashboard', href: 'https://tau-emotion-bench.github.io/' }]
+    },
+    {
+      name: 'SunTransit',
+      what: 'Real-time transit delay tracking from GTFS-RT feeds. ETA model cuts MAE 39% vs a lookup-table baseline.',
+      stack: ['Spark', 'Kafka', 'Docker', 'SageMaker', 'Streamlit'],
+      links: [
+        { label: 'suntransit.live', href: 'https://suntransit.live' },
+        { label: 'Code', href: 'https://github.com/rishitoshsingh/suntransit' }
       ]
     },
     {
-      name: 'SunTransit: Transit Performance Dashboard',
-      timeframe: 'July 2025',
-      href: 'https://github.com/rishitoshsingh/suntransit',
-      hrefLabel: 'View repository',
-      docsHref: 'https://rishitoshsingh.github.io/suntransit/',
-      docsLabel: 'Read More',
-      summary:
-        'A public-sector transit analytics platform built around streaming data, reproducible datasets, and operational dashboards.',
-      stack: ['Python', 'Spark', 'Kafka', 'Airflow', 'Docker', 'Streamlit'],
-      highlights: [
-        'Implemented Spark, Kafka, and Python pipelines for real-time GTFS and GTFS-RT processing.',
-        'Containerized ingestion and orchestration with Docker and Airflow for scheduling and monitoring.',
-        'Published an analysis-ready transit delay dataset to support research and urban planning.'
-      ]
-    },
-    {
-      name: 'EduFace',
-      timeframe: '2021 to 2022',
-      href: 'https://github.com/rishitoshsingh/EduFace',
-      hrefLabel: 'View repository',
-      summary:
-        'An applied computer vision pipeline for face recognition and content processing, designed to run efficiently on local hardware instead of expensive cloud GPU infrastructure.',
-      stack: ['Python', 'OpenCV', 'GStreamer', 'Docker', 'Linux', 'Computer Vision'],
-      highlights: [
-        'Built and deployed a face recognition workflow used in a product context, with an emphasis on operational efficiency.',
-        'Reduced inference costs by shifting workloads onto optimized local hardware.',
-        'Demonstrates practical deployment concerns including multiprocessing and long-running service management.'
-      ]
-    },
-    {
-      name: 'LinkedIn Knowledge Graph',
-      timeframe: 'October 2025',
-      href: 'https://github.com/rishitoshsingh/linkedin-knowledge-graph',
-      hrefLabel: 'View repository',
-      summary:
-        'An experimental knowledge graph project connecting roles, skills, resumes, and job postings to support semantic matching and richer labor-market analysis.',
-      stack: ['Knowledge Graph', 'NLP', 'Resume Mining', 'Job Data', 'Jupyter', 'Python'],
-      highlights: [
-        'Built around the same candidate-skill-role linking ideas referenced in my AI retrieval work.',
-        'Explores structured skill extraction and graph relationships rather than plain keyword search.',
-        'Best viewed as a research-oriented companion project to the RAG system.'
+      name: 'Richie',
+      what: 'Chatbot that answers questions about my work. Indexes 50+ GitHub repos into Pinecone; LangGraph routes each query.',
+      stack: ['LangGraph', 'Pinecone', 'MongoDB', 'Streamlit'],
+      links: [
+        { label: 'Docs', href: 'https://rishitoshsingh.github.io/richie/' },
+        { label: 'Code', href: 'https://github.com/rishitoshsingh/richie' }
       ]
     }
   ];
 
-  protected readonly currentProject: ProjectItem = {
-    name: 'τ-emotion: Evaluating Tool-Using Agents Under Emotional Conditions',
-    timeframe: 'Current research · 2026',
-    href: '/#/tau-emotion',
-    hrefLabel: 'View Details',
-    summary:
-      'A benchmark for evaluating tool-using agents under explicit user emotion conditions in customer-service workflows. Features 5,940 emotion-conditioned tasks across airline and retail domains.',
-    stack: ['Python', 'LLM Evaluation', 'Benchmark', 'NeurIPS 2026'],
-    highlights: [
-      'Grounded task generation pipeline via tool graphs and random-walk traces.',
-      'Emotion taxonomy with 5 families, 22 leaf categories, and 3 behavioral dimensions.',
-      'Demonstrates how emotional context materially shifts agent reliability.'
-    ]
-  };
-
-  protected readonly publications: PublicationItem[] = [
+  protected readonly publications = [
     {
-      title: 'Do Vision Language Models Understand Human Engagement in Games?',
-      venue: 'arXiv',
-      year: '2026',
-      href: 'https://doi.org/10.48550/arXiv.2603.18480',
-      authors: 'Ziyi Wang, Qizan Guo, Rishitosh Singh, Xiyang Hu',
-      note: 'Submitted March 19, 2026. arXiv:2603.18480 [cs.CV]',
-      logoSrc: '/logos/arxiv-logo.png',
-      logoAlt: 'arXiv logo'
+      title: 'τ-Emotion-Bench: LLM Agent Evaluation under Emotional User Interactions',
+      venue: 'NeurIPS 2026 Workshop (UserSim)',
+      href: 'https://tau-emotion-bench.github.io/'
+    },
+    {
+      title: 'Do Vision–Language Models Understand Human Engagement in Games?',
+      venue: 'EMNLP 2026 · co-first author',
+      href: 'https://doi.org/10.48550/arXiv.2603.18480'
+    },
+    {
+      title: 'CAST: Critique-Aware Supervision for Training Reliable Long-Horizon Tool-Calling Agents',
+      venue: 'EMNLP 2026',
+      href: 'https://doi.org/10.48550/arXiv.2608.30147'
     },
     {
       title: 'A novel non-linear neuron model based on multiplicative aggregation in quaternionic domain',
-      venue: 'Complex & Intelligent Systems',
-      year: '2023',
-      href: 'https://doi.org/10.1007/s40747-022-00911-6',
-      authors: 'Sushil Kumar, Rishitosh Kumar Singh, Aryan Chaudhary',
-      logoSrc: '/logos/springer-nature-logo.png',
-      logoAlt: 'Springer Nature logo'
+      venue: 'Complex & Intelligent Systems, 2023',
+      href: 'https://doi.org/10.1007/s40747-022-00911-6'
     },
     {
       title: 'On the Learning Machine with Amplificatory Neuron in Complex Domain',
-      venue: 'Arabian Journal for Science and Engineering',
-      year: '2020',
-      href: 'https://doi.org/10.1007/s13369-020-04692-3',
-      authors: 'Sushil Kumar, Rishitosh Kumar Singh, Aryan Chaudhary',
-      note: 'Verified via public institutional and index references because Google Scholar did not render directly in this environment.',
-      logoSrc: '/logos/springer-nature-logo.png',
-      logoAlt: 'Springer Nature logo'
+      venue: 'Arabian Journal for Science and Engineering, 2020',
+      href: 'https://doi.org/10.1007/s13369-020-04692-3'
     }
   ];
 
-  protected readonly certification = {
-    name: 'AWS Certified Cloud Practitioner',
-    id: 'S73F8JT24NEE16CS',
-    href: 'https://www.credly.com/badges/7ec4d3d5-1a7f-4f14-98fc-04a8cd55b552/public_url'
-  };
+  protected readonly skills = [
+    { label: 'LLM research', items: 'Tool-calling agents, SFT (Qwen, LLaMA), critique/reward modeling, VLMs, RAG, benchmark construction, LLM-as-judge' },
+    { label: 'ML / LLM', items: 'PyTorch, Hugging Face Transformers, scikit-learn, LangChain, LangGraph, CrewAI, FastMCP' },
+    { label: 'Data', items: 'Spark, Kafka, Airflow, Dask, Snowflake, Pandas, SQL' },
+    { label: 'Infra', items: 'AWS (SageMaker, S3, EC2, Lambda), Docker, Kubernetes, MLflow, FastAPI, Flask' },
+    { label: 'Languages', items: 'Python, SQL, C++, JavaScript, Bash' }
+  ];
 
-  protected pillIcon(label: string): string | null {
-    switch (label) {
-      case 'LangChain':
-        return '/logos/tech/langchain.png';
-      case 'Python':
-        return '/logos/tech/python.png';
-      case 'Docker':
-        return '/logos/tech/docker.png';
-      case 'Streamlit':
-        return '/logos/tech/streamlit.svg';
-      case 'Jupyter':
-        return '/logos/tech/jupyter.svg';
-      case 'LinkedIn':
-        return null;
-      case 'Spark':
-        return '/logos/tech/spark.png';
-      case 'Kafka':
-        return '/logos/tech/kafka.png';
-      case 'Airflow':
-        return '/logos/tech/airflow.png';
-      case 'OpenCV':
-        return '/logos/tech/opencv.png';
-      case 'Linux':
-        return '/logos/tech/linux.svg';
-      case 'OpenAI APIs':
-        return null;
-      default:
-        return null;
-    }
+  protected readonly education = [
+    { degree: 'MS, Computer Science', school: 'Arizona State University', when: '2024 – 2026' },
+    { degree: 'BTech, Computer Science', school: 'Dr. A.P.J. Abdul Kalam Technical University', when: '2016 – 2020' }
+  ];
+
+  protected toggleTheme(): void {
+    const root = document.documentElement;
+    const dark = root.dataset['theme']
+      ? root.dataset['theme'] === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset['theme'] = dark ? 'light' : 'dark';
+    try {
+      localStorage.setItem('theme', root.dataset['theme']);
+    } catch {}
   }
 }

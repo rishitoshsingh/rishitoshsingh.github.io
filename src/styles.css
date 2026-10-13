@@ -1,16 +1,56 @@
+/* LaTeX-style italic τ: only U+03C4 comes from this face, everything else falls through. */
+@font-face {
+  font-family: 'Tau';
+  src: local('STIXTwoText-Italic'), local('STIX Two Text Italic'), local('TimesNewRomanPS-ItalicMT'),
+    local('Times New Roman Italic'), local('Cambria Italic'), local('Liberation Serif Italic'),
+    local('DejaVu Serif Italic');
+  unicode-range: U+03C4;
+}
+
 :root {
-  --bg: #f4efe4;
-  --bg-deep: #e8decb;
-  --panel: rgba(255, 251, 243, 0.88);
-  --panel-strong: #113f37;
-  --ink: #3f4138;
-  --ink-strong: #1f241c;
-  --muted: #6d7167;
-  --accent: #e0a75f;
-  --accent-strong: #8b4d16;
-  --border: rgba(45, 58, 41, 0.12);
-  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-  --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  color-scheme: light;
+  --bg: #fafaf7;
+  --bg-deep: #f1f1ec;
+  --panel: #ffffff;
+  --panel-strong: #1a1a1a;
+  --ink: #2b2b2b;
+  --ink-strong: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #1f4fd1;
+  --accent-strong: #1f4fd1;
+  --border: rgba(0, 0, 0, 0.1);
+  --font-display: "Tau", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-body: "Tau", "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #111418;
+    --bg-deep: #0d1013;
+    --panel: #181c21;
+    --panel-strong: #0b0d10;
+    --ink: #d4d7dc;
+    --ink-strong: #f0f1f3;
+    --muted: #8a9099;
+    --accent: #2dd4bf;
+    --accent-strong: #2dd4bf;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #111418;
+  --bg-deep: #0d1013;
+  --panel: #181c21;
+  --panel-strong: #0b0d10;
+  --ink: #d4d7dc;
+  --ink-strong: #f0f1f3;
+  --muted: #8a9099;
+  --accent: #2dd4bf;
+  --accent-strong: #2dd4bf;
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -26,22 +66,7 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: var(--font-body);
-  background:
-    radial-gradient(circle at top, rgba(224, 167, 95, 0.16), transparent 24rem),
-    linear-gradient(180deg, var(--bg), var(--bg-deep));
-  background-attachment: fixed;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(17, 63, 55, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 63, 55, 0.03) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent);
+  background: var(--bg);
 }
 
 h1,
