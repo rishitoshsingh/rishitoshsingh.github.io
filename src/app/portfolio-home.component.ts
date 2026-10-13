@@ -72,6 +72,7 @@ export class PortfolioHomeComponent {
       stack: ['Spark', 'Kafka', 'Docker', 'SageMaker', 'Streamlit'],
       links: [
         { label: 'suntransit.live', href: 'https://suntransit.live' },
+        { label: 'Docs', href: 'https://rishitoshsingh.github.io/suntransit/' },
         { label: 'Code', href: 'https://github.com/rishitoshsingh/suntransit' }
       ]
     },
