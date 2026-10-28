@@ -28,8 +28,11 @@ export class PortfolioHomeComponent {
       role: 'Research Assistant',
       org: 'CogInt Lab & GLAD Lab, Arizona State University',
       when: 'Feb 2025 – Present',
+      logo: '/logos/asu-logo.png',
+      current: true,
+      stats: ['580 tasks · 10 domains', '+13.8–19.7 pts Avg@3', 'EMNLP 2026 co-first'],
       points: [
-        'Built Tracer, an agentic data generator behind τ-Emotion-Bench: 1,492 verified trajectories testing tool-calling LLMs against emotional users in airline, retail, telecom and telehealth. SOTA agents drop 4–11% (NeurIPS 2026 Workshop).',
+        'Built Tracer, the agentic data generator behind τ-Emotion-Bench: 580 verified tool-calling tasks across 10 domains with emotional simulated users. The best frontier agent reaches only 55.9% Avg@3; fine-tuning Qwen3 on 1,958 Tracer trajectories adds 13.8–19.7 points.',
         'Co-first author on benchmarking VLMs (InternVL3.5, Qwen3-VL, GPT-4o) for reading player engagement from gameplay video across 9 games. Zero-shot scored below a majority baseline (~57% vs 67.2%); retrieval-augmented few-shot prompting closed the gap by +18pp (EMNLP 2026).',
         'Built Dask and PySpark pipelines that clean, validate and normalize raw research datasets into Parquet for analysis and training.',
         'Built 2 CrewAI multi-agent workflows that generate course assignments for AI/ML coursework.'
@@ -39,6 +42,8 @@ export class PortfolioHomeComponent {
       role: 'Machine Learning Engineer',
       org: 'Tiger Analytics',
       when: 'Jun 2022 – Dec 2023',
+      logo: '/logos/tiger-analytics-logo.png',
+      stats: ['35% faster retraining', '25% shorter batches', '60% less manual work'],
       points: [
         'Built SageMaker pipelines for a financial client that chain data cleaning, inference, evaluation and drift detection: 35% faster retraining.',
         'Built drift detection and retraining workflows with MLflow to keep production models reliable.',
@@ -50,6 +55,8 @@ export class PortfolioHomeComponent {
       role: 'Senior Product Analyst (Applied ML)',
       org: 'Techlearn (EduGrad)',
       when: 'Nov 2020 – Jun 2022',
+      logo: '',
+      stats: ['Churn 10% → 2%', '62% lower inference cost'],
       points: [
         'NLP models on user behavior drove product recommendations that cut churn from 10% to 2%.',
         'Shipped EduFace, a face recognition pipeline (GStreamer, OpenCV, Docker) on local hardware: 62% lower inference cost.',
@@ -62,7 +69,7 @@ export class PortfolioHomeComponent {
   protected readonly projects = [
     {
       name: 'τ-Emotion-Bench',
-      what: 'Benchmark for tool-calling agents talking to emotional users, across airline, retail, telecom and telehealth. Fine-tuned Qwen3 beats ReAct.',
+      what: '580 tool-calling tasks in 10 domains where the simulated user carries one of 594 emotion conditions and can walk away. Fine-tuning Qwen3 on Tracer trajectories adds 13.8–19.7 points.',
       stack: ['Python', 'LLM eval', 'Fine-tuning'],
       image: { src: '/images/projects/tau-emotion.jpg', alt: 'τ-Emotion-Bench leaderboard: agent scores with and without emotional users' },
       links: [{ label: 'Dashboard', href: 'https://tau-emotion-bench.github.io/' }]
@@ -92,7 +99,7 @@ export class PortfolioHomeComponent {
 
   protected readonly publications = [
     {
-      title: 'τ-Emotion-Bench: LLM Agent Evaluation under Emotional User Interactions',
+      title: 'τ-Emotion-Bench: Exposing the Interaction Fragility of LLM Agents through Real-World User Emotions',
       venue: 'NeurIPS 2026 Workshop (UserSim)',
       href: 'https://tau-emotion-bench.github.io/'
     },
@@ -127,8 +134,8 @@ export class PortfolioHomeComponent {
   ];
 
   protected readonly education = [
-    { degree: 'MS, Computer Science', school: 'Arizona State University', when: '2024 – 2026' },
-    { degree: 'BTech, Computer Science', school: 'Dr. A.P.J. Abdul Kalam Technical University', when: '2016 – 2020' }
+    { degree: 'MS, Computer Science', school: 'Arizona State University', when: '2024 – 2026', logo: '/logos/asu-logo.png' },
+    { degree: 'BTech, Computer Science', school: 'Dr. A.P.J. Abdul Kalam Technical University', when: '2016 – 2020', logo: '/logos/aktu-logo.png' }
   ];
 
   protected toggleTheme(): void {

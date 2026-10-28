@@ -15,7 +15,7 @@
     <div>
     <h1>{{ name }}</h1>
     <p class="tagline">{{ tagline }}</p>
-    <p class="meta">Tempe, AZ · AWS Certified</p>
+    <p class="meta">California · AWS Certified</p>
     <nav class="links">
       @for (link of links; track link.label) {
         <a [href]="link.href" target="_blank" rel="noreferrer">
@@ -29,19 +29,39 @@
 
   <section>
     <h2>Experience</h2>
-    @for (job of experience; track job.org) {
-      <article class="item">
-        <div class="row">
-          <h3>{{ job.role }} <span class="org">· {{ job.org }}</span></h3>
-          <span class="when">{{ job.when }}</span>
-        </div>
-        <ul>
-          @for (point of job.points; track point) {
-            <li>{{ point }}</li>
-          }
-        </ul>
-      </article>
-    }
+    <ol class="timeline">
+      @for (job of experience; track job.org) {
+        <li class="t-item" [class.current]="job.current">
+          <span class="t-logo">
+            @if (job.logo) {
+              <img [src]="job.logo" alt="" />
+            } @else {
+              {{ job.org[0] }}
+            }
+          </span>
+          <article class="t-card">
+            <div class="t-head">
+              <span class="t-when">{{ job.when }}</span>
+              @if (job.current) {
+                <span class="t-now">Now</span>
+              }
+            </div>
+            <h3>{{ job.role }}</h3>
+            <p class="org">{{ job.org }}</p>
+            <div class="t-stats">
+              @for (stat of job.stats; track stat) {
+                <span>{{ stat }}</span>
+              }
+            </div>
+            <ul>
+              @for (point of job.points; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          </article>
+        </li>
+      }
+    </ol>
   </section>
 
   <section>
@@ -96,8 +116,8 @@
   <section>
     <h2>Education</h2>
     @for (item of education; track item.school) {
-      <div class="row">
-        <span>{{ item.degree }} <span class="org">· {{ item.school }}</span></span>
+      <div class="row edu">
+        <span class="edu-name"><img class="edu-logo" [src]="item.logo" alt="" /><span>{{ item.degree }} <span class="org">· {{ item.school }}</span></span></span>
         <span class="when">{{ item.when }}</span>
       </div>
     }
