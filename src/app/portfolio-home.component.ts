@@ -64,12 +64,14 @@ export class PortfolioHomeComponent {
       name: 'τ-Emotion-Bench',
       what: 'Benchmark for tool-calling agents talking to emotional users, across airline, retail, telecom and telehealth. Fine-tuned Qwen3 beats ReAct.',
       stack: ['Python', 'LLM eval', 'Fine-tuning'],
+      image: { src: '/images/projects/tau-emotion.jpg', alt: 'τ-Emotion-Bench leaderboard: agent scores with and without emotional users' },
       links: [{ label: 'Dashboard', href: 'https://tau-emotion-bench.github.io/' }]
     },
     {
       name: 'SunTransit',
       what: 'Real-time transit delay tracking from GTFS-RT feeds. ETA model cuts MAE 39% vs a lookup-table baseline.',
       stack: ['Spark', 'Kafka', 'Docker', 'SageMaker', 'Streamlit'],
+      image: { src: '/images/projects/suntransit.jpg', alt: 'SunTransit live map of Phoenix buses with bunching alerts' },
       links: [
         { label: 'suntransit.live', href: 'https://suntransit.live' },
         { label: 'Docs', href: 'https://rishitoshsingh.github.io/suntransit/' },
@@ -80,6 +82,7 @@ export class PortfolioHomeComponent {
       name: 'Richie',
       what: 'Chatbot that answers questions about my work. Indexes 50+ GitHub repos into Pinecone; LangGraph routes each query.',
       stack: ['LangGraph', 'Pinecone', 'MongoDB', 'Streamlit'],
+      image: { src: '/images/projects/richie.png', alt: 'Richie LangGraph routing: query classifier dispatching to chatbot nodes' },
       links: [
         { label: 'Docs', href: 'https://rishitoshsingh.github.io/richie/' },
         { label: 'Code', href: 'https://github.com/rishitoshsingh/richie' }

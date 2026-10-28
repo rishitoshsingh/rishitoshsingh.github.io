@@ -47,17 +47,22 @@
   <section>
     <h2>Projects</h2>
     @for (project of projects; track project.name) {
-      <article class="item">
-        <div class="row">
-          <h3>{{ project.name }}</h3>
-          <span class="when">
-            @for (link of project.links; track link.href) {
-              <a [href]="link.href" target="_blank" rel="noreferrer">{{ link.label }}</a>
-            }
-          </span>
+      <article class="item project">
+        <a class="shot" [href]="project.links[0].href" target="_blank" rel="noreferrer">
+          <img [src]="project.image.src" [alt]="project.image.alt" loading="lazy" />
+        </a>
+        <div>
+          <div class="row">
+            <h3>{{ project.name }}</h3>
+            <span class="when">
+              @for (link of project.links; track link.href) {
+                <a [href]="link.href" target="_blank" rel="noreferrer">{{ link.label }}</a>
+              }
+            </span>
+          </div>
+          <p>{{ project.what }}</p>
+          <p class="stack">{{ project.stack.join(' · ') }}</p>
         </div>
-        <p>{{ project.what }}</p>
-        <p class="stack">{{ project.stack.join(' · ') }}</p>
       </article>
     }
   </section>
