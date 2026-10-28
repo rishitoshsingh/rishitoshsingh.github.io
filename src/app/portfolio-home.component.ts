@@ -30,7 +30,7 @@ export class PortfolioHomeComponent {
       when: 'Feb 2025 – Present',
       logo: '/logos/asu-logo.png',
       current: true,
-      stats: ['580 tasks · 10 domains', '+13.8–19.7 pts Avg@3', 'EMNLP 2026 co-first'],
+      stats: ['LLM Agent Benchmark', 'VLM Research', 'EMNLP 2026', 'NeurIPS 2026 Workshop'],
       points: [
         'Built Tracer, the agentic data generator behind τ-Emotion-Bench: 580 verified tool-calling tasks across 10 domains with emotional simulated users. The best frontier agent reaches only 55.9% Avg@3; fine-tuning Qwen3 on 1,958 Tracer trajectories adds 13.8–19.7 points.',
         'Co-first author on benchmarking VLMs (InternVL3.5, Qwen3-VL, GPT-4o) for reading player engagement from gameplay video across 9 games. Zero-shot scored below a majority baseline (~57% vs 67.2%); retrieval-augmented few-shot prompting closed the gap by +18pp (EMNLP 2026).',
@@ -43,7 +43,7 @@ export class PortfolioHomeComponent {
       org: 'Tiger Analytics',
       when: 'Jun 2022 – Dec 2023',
       logo: '/logos/tiger-analytics-logo.png',
-      stats: ['35% faster retraining', '25% shorter batches', '60% less manual work'],
+      stats: ['MLOps on AWS SageMaker', 'Model Drift Detection', 'Big Data ETL'],
       points: [
         'Built SageMaker pipelines for a financial client that chain data cleaning, inference, evaluation and drift detection: 35% faster retraining.',
         'Built drift detection and retraining workflows with MLflow to keep production models reliable.',
@@ -56,7 +56,7 @@ export class PortfolioHomeComponent {
       org: 'Techlearn (EduGrad)',
       when: 'Nov 2020 – Jun 2022',
       logo: '',
-      stats: ['Churn 10% → 2%', '62% lower inference cost'],
+      stats: ['NLP Recommendations', 'Computer Vision', 'Edge Deployment'],
       points: [
         'NLP models on user behavior drove product recommendations that cut churn from 10% to 2%.',
         'Shipped EduFace, a face recognition pipeline (GStreamer, OpenCV, Docker) on local hardware: 62% lower inference cost.',
